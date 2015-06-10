@@ -1,0 +1,12 @@
+body {
+	font-family: 'Merriweather', serif;
+	color: #2C3E50;
+}
+.dark {
+	background: #20202c;
+	background: linear-gradient(to bottom, #20202c 0%,#515175 100%);
+	color: #ECF0F1;
+}
+footer a {
+	color: #515175;
+}

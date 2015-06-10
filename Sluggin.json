@@ -1,0 +1,29 @@
+{
+	"name": "Sluggin",
+	"title": "Sluggin.js",
+	"homepage": "https://github.com/juanbrujo/Sluggin.js",
+	"description": "Converts string into websafe-friendly-clean piece of text",
+	"demo": "",
+	"keywords": [
+		"javascript",
+		"slug",
+		"pretty url",
+		"SEO"
+	],
+	"version": "0.0.1",
+	"author": {
+		"name": "Jorge Epuñan H.",
+		"url": "https://github.com/juanbrujo",
+		"twitter": "@csslab"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://mit-license.org/",
+			"copyright": "©2015"
+		}
+	],
+	"bugs": "https://github.com/juanbrujo/Sluggin.js/issues",
+	"docs": "https://github.com/juanbrujo/Sluggin.js#readme",
+	"download": "https://github.com/juanbrujo/Sluggin.js/archive/master.zip"
+}

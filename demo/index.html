@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sluggin.js</title>
+	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/libs/tachyons.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="wi-100">
+  <div class="dt pvx pvxl-ns dark">
+    <header class="bg-pulsate tc dtc wi-100 v-mid">
+      <div class="tc mbm mbn-ns">
+        <h1 class="f3 f2-m mega-ns b db-ns mrs mrn-ns mbn ttu mtn pulse-letters">
+          Sluggin.js
+        </h1>
+        <p class="f5 f3-ns dib db-ns fw1 phs mbn mbx-ns aqua">
+          Converts string into websafe-friendly-clean piece of text
+          <small class="ws-nowrap db f5 mts mtm-ns">2.09kb (minified)</small>
+        </p>
+      </div>
+      <div class="pvm">
+        <a title="Sluggin.js" href="//github.com/juanbrujo/Sluggin.js"
+           class="small link tc br2 bw1 pas pam-ns btn--animated">View on Github ▸</a>
+      </div>
+    </header>
+  </div>
+  <main>
+    <section class="bg-near-white dt h-100 navy pvx pvxl-ns">
+      <div class="dtc v-mid">
+        <div class="mw7 center phm phl-ns tl tl-ns">
+          <h1 class="f4 ttu book">Use</h1>
+          <section class="f4 f3-ns list pln lh-copy">
+            <article class="pvs">
+            	<pre>Sluggin( "Text I want to transform!" );</pre>
+            </article>
+          </section>
+        </div>
+      </div>
+    </section>
+		<section class="bg-near-white dt h-100 dark pvx pvxl-ns">
+      <div class="dtc v-mid">
+    		<div class="mw7 center phm phl-ns tl tl-ns">
+          <h1 class="f4 ttu book">Demos</h1>
+          <section class="f4 f3-ns list pln lh-copy">
+            <article class="pvs demos">
+            </article>
+          </section>
+        </div>
+      </div>
+		</section>
+  </main>
+	<footer class="bg-white gray phm pvx pvxl-ns bt b--light-gray h-50">
+    <small class="f5 mw7 db center lh-copy">
+      <strong>Sluggin.js</strong> is released under <a href="//mit-license.org/">MIT License</a>
+      <br class="dn db-ns">
+      &copy; 2015 - Jorge Epuñan H.
+    </small>
+  </footer>
+
+	<script src="../dist/Sluggin.min.js"></script>
+	<script>
+
+	var EngText = "I used to have ugly text. Now I just have 1."
+	createDemoOutput("EN",EngText);
+
+	var SpaText = "Solía tener texto feo. Ahora sólo tengo 1."
+	createDemoOutput("ES",SpaText);
+
+	var FreText = "Je l'habitude d'avoir un texte laid. Je dois maintenant juste 1."
+	createDemoOutput("FR",FreText);
+
+	var GerText = "Früher habe ich hässlich Text. Jetzt habe ich nur noch 1."
+	createDemoOutput("GR",GerText);
+
+	function createDemoOutput(lang,text){
+		var inputTitle = document.createElement( "h2" );
+				inputTitle.setAttribute( "class","f3" );
+				inputTitleIns = document.createTextNode( "Input: [" + lang + "]" );
+				inputTitle.appendChild( inputTitleIns );
+				document.querySelector(".demos").appendChild( inputTitle );
+
+		var title = document.createElement( "p" ),
+				titleIns = document.createTextNode( text );
+				title.appendChild( titleIns );
+				document.querySelector( ".demos" ).appendChild( title );
+
+		var outputTitle = document.createElement( "h2" );
+				outputTitle.setAttribute( "class","f3" );
+				outputTitleIns = document.createTextNode( "Output:" );
+				outputTitle.appendChild( outputTitleIns );
+				document.querySelector( ".demos" ).appendChild( outputTitle );
+
+		var output = document.createElement( "pre" ),
+				slug = Sluggin( text );
+				outputIns = document.createTextNode( slug );
+				output.appendChild( outputIns );
+				document.querySelector( ".demos" ).appendChild( output );
+	}
+
+	</script>
+</body>
+</html>
