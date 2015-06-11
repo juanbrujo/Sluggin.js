@@ -14,8 +14,8 @@ Sluggin( "Solía tener texto feo. Ahora sólo tengo 1." );
 ```
 
 ```
-Sluggin( "Je l'habitude d'avoir un texte laid. Je dois maintenant juste 1." );
-➤ je-lhabitude-davoir-un-texte-laid-je-dois-maintenant-juste-1
+Sluggin( "J'ai l'habitude d'avoir un texte laid. Je dois maintenant juste 1." );
+➤ jai-lhabitude-davoir-un-texte-laid-je-dois-maintenant-juste-1
 ```
 
 ```
