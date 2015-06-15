@@ -1,5 +1,5 @@
 {
-	"name": "Sluggin",
+	"name": "sluggin",
 	"title": "Sluggin.js",
 	"homepage": "https://github.com/juanbrujo/Sluggin.js",
 	"description": "Converts string into websafe-friendly-clean piece of text",
@@ -10,7 +10,7 @@
 		"pretty url",
 		"SEO"
 	],
-	"version": "0.0.1",
+	"version": "0.0.3",
 	"author": {
 		"name": "Jorge Epuñan H.",
 		"url": "https://github.com/juanbrujo",

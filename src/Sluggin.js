@@ -57,7 +57,7 @@ var Sluggin = (function Sluggin() {
     return sa ? s : s[0];
   }
   
-  function SlugginOutput(text) {
+  function Sluggin(text) {
     
     if( typeof text === "string" ){
     
@@ -76,7 +76,19 @@ var Sluggin = (function Sluggin() {
     
   }
 
-  return SlugginOutput;
+  return Sluggin;
 
 })(this);
+
+if (typeof module !== "undefined" && module.exports) {
+  // export functions for use in Node
+  module.exports.Sluggin = function(text) {
+    return Sluggin(text);
+  };
+} else if (typeof define !== "undefined" && define.amd) {
+  // export function for use in AMD
+  define([], function (text) {
+    return Sluggin(text);
+  });
+} 
 
