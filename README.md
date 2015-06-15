@@ -1,4 +1,6 @@
 #Sluggin.js
+![Bower version](https://img.shields.io/bower/v/sluggin.svg)
+
 
 > Converts string into websafe-friendly-clean piece of text 
 
