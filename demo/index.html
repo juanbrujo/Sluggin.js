@@ -41,7 +41,15 @@
 		<section class="bg-near-white dt h-100 dark pvx pvxl-ns">
       <div class="dtc v-mid">
     		<div class="mw7 center phm phl-ns tl tl-ns">
-          <h1 class="f4 ttu book">Demos</h1>
+          <h1 class="f4 ttu book">Live Demo</h1>
+          <section class="f4 f3-ns list pln lh-copy">
+            <article class="pvs live-demo">
+              <input type="text" id="stringinput" placeholder="Enter a text" />
+              <button id="sluggifyinput">Sluggify-this</button>
+              <p id="slugginoutput">Output: </p>
+            </article>
+          </section>
+          <h1 class="f4 ttu book">Languages Demos</h1>
           <section class="f4 f3-ns list pln lh-copy">
             <article class="pvs demos">
             </article>
@@ -61,42 +69,93 @@
 	<script src="../dist/Sluggin.min.js"></script>
 	<script>
 
+  // LIVE DEMO
+
+  var inp = document.querySelector("#stringinput"),
+      but = document.querySelector("#sluggifyinput"),
+      out = document.querySelector("#slugginoutput");
+
+      but.addEventListener("click",function(){
+        var inpString = inp.value;
+        console.log(inpString)
+        out.innerHTML = "Output: " + Sluggin( inpString );
+
+      });
+
+  // LANGUAGES (STATIC) DEMOS
+
 	var EngText = "I used to have ugly text. Now I just have 1."
 	createDemoOutput("EN",EngText);
-
 	var SpaText = "Solía tener texto feo. Ahora sólo tengo 1."
 	createDemoOutput("ES",SpaText);
-
 	var FreText = "J'ai l'habitude d'avoir un texte laid. Je dois maintenant juste 1."
 	createDemoOutput("FR",FreText);
-
 	var GerText = "Früher habe ich hässlich Text. Jetzt habe ich nur noch 1."
 	createDemoOutput("GR",GerText);
 
 	function createDemoOutput(lang,text){
-		var inputTitle = document.createElement( "h2" );
-				inputTitle.setAttribute( "class","f3" );
-				inputTitleIns = document.createTextNode( "Input: [" + lang + "]" );
-				inputTitle.appendChild( inputTitleIns );
-				document.querySelector(".demos").appendChild( inputTitle );
+    var inputTitle = createElement("h2", "[class:f3]", "Input: [" + lang + "]");
+    document.querySelector(".demos").appendChild( inputTitle );
 
-		var title = document.createElement( "p" ),
-				titleIns = document.createTextNode( text );
-				title.appendChild( titleIns );
-				document.querySelector( ".demos" ).appendChild( title );
+    var title = createElement("p", "[class:f3]", text);
+    document.querySelector(".demos").appendChild( title );
 
-		var outputTitle = document.createElement( "h2" );
-				outputTitle.setAttribute( "class","f3" );
-				outputTitleIns = document.createTextNode( "Output:" );
-				outputTitle.appendChild( outputTitleIns );
-				document.querySelector( ".demos" ).appendChild( outputTitle );
+    var outputTitle = createElement("h2", "[class:f3]", "Output:");
+    document.querySelector(".demos").appendChild( outputTitle );
 
-		var output = document.createElement( "pre" ),
-				slug = Sluggin( text );
-				outputIns = document.createTextNode( slug );
-				output.appendChild( outputIns );
-				document.querySelector( ".demos" ).appendChild( output );
+    var slug = Sluggin( text ),
+        output = createElement("pre", "[class:f3]", slug);
+    document.querySelector(".demos").appendChild( output );
 	}
+
+  function createElement(name, val, result) {
+    if (typeof name === "undefined") {
+      return false;
+    }
+    if (typeof val === "undefined") {
+      val = "";
+    }
+    if (typeof result === "undefined") {
+      result = "";
+    }
+    var ret = document.createElement(name);
+    if (val.length > 1 && (val[0] == "[" && val[val.length - 1] == "]")) {
+      var values = val.split("][");
+      values[0] = values[0].substr(1);
+      values[values.length - 1] = values[values.length - 1].substr(0, values[values.length - 1].length - 1);
+      var i = 0;
+      var valuesLen = values.length;
+      for (;i < valuesLen;i++) {
+        var key;
+        var width = "";
+        var colonIndex = values[i].indexOf(":");
+        if (colonIndex > 0) {
+          key = values[i].substr(0, colonIndex);
+          width = values[i].substr(colonIndex + 1);
+        } else {
+          key = values[i].substr(0);
+        }
+        ret.setAttribute(key, width);
+      }
+    }
+    if (Array.isArray(result)) {
+      i = 0;
+      for (;i < result.length;i++) {
+        if (result[i].tagName) {
+          ret.appendChild(result[i]);
+        } else {
+          ret.appendChild(document.createTextNode(result[i]));
+        }
+      }
+    } else {
+      if (result.tagName) {
+        ret.appendChild(result);
+      } else {
+        ret.innerHTML = result;
+      }
+    }
+    return ret;
+  };
 
 	</script>
 </body>
