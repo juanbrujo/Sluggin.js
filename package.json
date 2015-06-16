@@ -23,6 +23,9 @@
     "grunt-contrib-watch": "^0.6.1"
   },
   "scripts": {
-    "test": "grunt travis --verbose"
+    "test": {
+      "grunt": "grunt testjs --verbose",
+      "node": "node test.js"
+    }
   }
 }
