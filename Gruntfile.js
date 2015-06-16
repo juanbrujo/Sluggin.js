@@ -14,15 +14,15 @@ module.exports = function(grunt) {
 				" *  <%= pkg.licenses[0].copyright %>\n" +
 				" */\n"
 		},
-		concat: {
-			dist: {
-				src: ["src/Sluggin.js"],
-				dest: "dist/Sluggin.js"
-			},
-			options: {
-				banner: "<%= meta.banner %>"
-			}
-		},
+		// concat: {
+		// 	dist: {
+		// 		src: ["src/Sluggin.js"],
+		// 		dest: "dist/Sluggin.js"
+		// 	},
+		// 	options: {
+		// 		banner: "<%= meta.banner %>"
+		// 	}
+		// },
 		jshint: {
 			files: ["src/Sluggin.js"],
 			options: {
@@ -30,12 +30,23 @@ module.exports = function(grunt) {
 			}
 		},
 		uglify: {
-			my_target: {
-				src: ["src/Sluggin.js"],
-				dest: "dist/Sluggin.min.js"
+			min: {
+				options: {
+					banner: "<%= meta.banner %>"
+				},
+				files: {
+					'dist/Sluggin.min.js': ['src/Sluggin.js']
+				}
 			},
-			options: {
-				banner: "<%= meta.banner %>"
+			normal: {
+				options: {
+					banner: "<%= meta.banner %>",
+					beautify: true,
+					mangle: false
+				},
+				files: {
+					'dist/Sluggin.js': ['src/Sluggin.js']
+				}
 			}
 		},
 		watch: {
@@ -43,16 +54,16 @@ module.exports = function(grunt) {
 				livereload: true
 			},
 		    scripts: {
-				files: ['src/*.js'],
-				tasks: ['uglify'],
+				files: ["src/*.js"],
+				tasks: ["uglify"],
 				options: {
 					spawn: false
 				}
 			},
 			html: {
-				files: ['demo/*.html'],
+				files: ["demo/*.html"],
 			},
-		    tasks: ['default']
+		    tasks: ["default"]
 		}
 	});
 
@@ -61,7 +72,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 
-	grunt.registerTask("default", ["concat", "uglify"]);
+	grunt.registerTask("default", ["uglify"]);
 	grunt.registerTask("testjs", ["jshint"]);
 
 };

@@ -3,14 +3,14 @@
 	"title": "Sluggin.js",
 	"homepage": "https://github.com/juanbrujo/Sluggin.js",
 	"description": "Converts string into websafe-friendly-clean piece of text",
-	"demo": "",
+	"demo": "http://juanbrujo.github.io/Sluggin.js/",
 	"keywords": [
 		"javascript",
 		"slug",
 		"pretty url",
 		"SEO"
 	],
-	"version": "0.0.4",
+	"version": "0.1.0",
 	"author": {
 		"name": "Jorge Epuñan H.",
 		"url": "https://github.com/juanbrujo",

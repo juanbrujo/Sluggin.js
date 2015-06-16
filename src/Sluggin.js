@@ -26,69 +26,85 @@ var Sluggin = (function Sluggin() {
 
   var string = "";
 
-  function convert(text) {
-    string = str_replace(characters, latin, text);
+  function convert( text ) {
+    string = str_replace( characters, latin, text )
+    .toLowerCase()
+    .replace( /^\s+|\s+$/g, "" )
+    .replace( /[_|\s]+/g, "-" )
+    .replace( /[^a-z\u0400-\u04FF0-9-]+/g, "" )
+    .replace( /[-]+/g, "-" )
+    .replace( /^-+|-+$/g, "" )
+    .replace( /[-]+/g, "-" );
+
     return string;
   }
 
-  function str_replace(search, replace, subject, count) {
+  function str_replace( search, replace, subject, count ) {
     var i = 0, j = 0, temp = "", repl = "", sl = 0, fl = 0,
-        f = [].concat(search),
-        r = [].concat(replace),
+        f = [].concat( search ),
+        r = [].concat( replace ),
         s = subject,
         ra = r instanceof Array, sa = s instanceof Array;
-    s = [].concat(s);
-    if (count) {
+    s = [].concat( s );
+    if ( count ) {
       window[count] = 0;
     }
 
-    for (i=0, sl=s.length; i < sl; i++) {
+    for ( i=0, sl=s.length; i < sl; i++ ) {
       if (s[i] === "") {
         continue;
       }
-      for (j=0, fl=f.length; j < fl; j++) {
+      for ( j=0, fl=f.length; j < fl; j++ ) {
         temp = s[i] + "";
-        repl = ra ? (r[j] !== undefined ? r[j] : "") : r[0];
+        repl = ra ? ( r[j] !== undefined ? r[j] : "" ) : r[0];
         s[i] = (temp).split(f[j]).join(repl);
-        if (count && s[i] !== temp) {
-          window[count] += (temp.length-s[i].length)/f[j].length;}
+        if (count && s[i] !== temp ) {
+          window[count] += ( temp.length-s[i].length )/f[j].length;}
       }
     }
     return sa ? s : s[0];
   }
   
-  function Sluggin(text) {
+  function Sluggin( text ) {
+
+    var output;
+
+    if ( typeof text === "string" ) {
     
-    if( typeof text === "string" ){
-    
-      var output = convert(text)
-      .toLowerCase()
-      .replace(/^\s+|\s+$/g, "")
-      .replace(/[_|\s]+/g, "-")
-      .replace(/[^a-z\u0400-\u04FF0-9-]+/g, "")
-      .replace(/[-]+/g, "-")
-      .replace(/^-+|-+$/g, "")
-      .replace(/[-]+/g, "-");
-      
+      output = convert( text );
       return output;
 
+    } else if ( Object.prototype.toString.call( text ) === "[object Array]" ) {
+
+      var values = [],
+          i;
+      for( i = 0; i < text.length; i++ ){
+        output = convert( text[i] );
+        values.push( output );
+      }  
+      return values;
+
+    } else {
+
+      return "";
+      
     }
     
   }
 
   return Sluggin;
 
-})(this);
+})( this );
 
-if (typeof module !== "undefined" && module.exports) {
+if ( typeof module !== "undefined" && module.exports ) {
   // export functions for use in Node
-  module.exports.Sluggin = function(text) {
-    return Sluggin(text);
+  module.exports.Sluggin = function ( text ) {
+    return Sluggin( text );
   };
-} else if (typeof define !== "undefined" && define.amd) {
+} else if ( typeof define !== "undefined" && define.amd ) {
   // export function for use in AMD
-  define([], function (text) {
-    return Sluggin(text);
+  define([], function ( text ) {
+    return Sluggin( text );
   });
-} 
+}
 
