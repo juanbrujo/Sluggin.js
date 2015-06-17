@@ -15,13 +15,14 @@
           Sluggin.js
         </h1>
         <p class="f5 f3-ns dib db-ns fw1 phs mbn mbx-ns aqua">
-          Converts string into websafe-friendly-clean piece of text
-          <small class="ws-nowrap db f5 mts mtm-ns">2.09kb (minified)</small>
+          Converts string/array into websafe-friendly-clean piece of text
+          <small class="ws-nowrap db f5 mts mtm-ns">2.4kb (minified)</small>
         </p>
-      </div>
-      <div class="pvm">
-        <a title="Sluggin.js" href="//github.com/juanbrujo/Sluggin.js"
+        </div>
+        <div class="pvm">
+           <a title="Sluggin.js" href="//github.com/juanbrujo/Sluggin.js"
            class="small link tc br2 bw1 pas pam-ns btn--animated">View on Github ▸</a>
+        </div>
       </div>
     </header>
   </div>
@@ -29,10 +30,21 @@
     <section class="bg-near-white dt h-100 navy pvx pvxl-ns">
       <div class="dtc v-mid">
         <div class="mw7 center phm phl-ns tl tl-ns">
-          <h1 class="f4 ttu book">Use</h1>
+          <h1 class="f4 ttu book">Install</h1>
+          <hr>
           <section class="f4 f3-ns list pln lh-copy">
             <article class="pvs">
-            	<pre>Sluggin( "Text I want to transform!" );</pre>
+              <pre>$ npm install sluggin</pre>
+              <pre>$ bower install sluggin</pre>
+            </article>
+          </section>
+        </div>
+        <div class="mw7 center phm phl-ns tl tl-ns">
+          <h1 class="f4 ttu book">Use</h1>
+          <hr>
+          <section class="f4 f3-ns list pln lh-copy">
+            <article class="pvs">
+              <pre>Sluggin( "Text I want to transform!" );</pre>
             </article>
           </section>
         </div>
@@ -42,16 +54,24 @@
       <div class="dtc v-mid">
     		<div class="mw7 center phm phl-ns tl tl-ns">
           <h1 class="f4 ttu book">Live Demo</h1>
+          <hr>
           <section class="f4 f3-ns list pln lh-copy">
             <article class="pvs live-demo">
-              <input type="text" id="stringinput" placeholder="Enter a text" />
+              <input type="text" id="stringinput" placeholder="Text I want to transform!" style="width:60%" />
               <button id="sluggifyinput">Sluggin-this</button>
               <p id="slugginoutput">Output: </p>
             </article>
           </section>
-          <h1 class="f4 ttu book">Languages Demos</h1>
+          <h1 class="f4 ttu book">String Demos</h1>
+          <hr>
           <section class="f4 f3-ns list pln lh-copy">
             <article class="pvs demos">
+            </article>
+          </section>
+          <h1 class="f4 ttu book">Array Demo</h1>
+          <hr>
+          <section class="f4 f3-ns list pln lh-copy">
+            <article class="pvs arraydemo">
             </article>
           </section>
         </div>
@@ -60,9 +80,9 @@
   </main>
 	<footer class="bg-white gray phm pvx pvxl-ns bt b--light-gray h-50">
     <small class="f5 mw7 db center lh-copy">
-      <strong>Sluggin.js</strong> is released under <a href="//mit-license.org/">MIT License</a>
+      <strong><a href="https://github.com/juanbrujo/Sluggin.js">Sluggin.js</a></strong> is released under <a href="//mit-license.org/">MIT License</a>
       <br class="dn db-ns">
-      &copy; 2015 - Jorge Epuñan H.
+      &copy; 2015 - Jorge Epuñan H. | <a href="http://www.twitter.com/csslab">@csslab</a>
     </small>
   </footer>
 
@@ -77,7 +97,6 @@
 
       but.addEventListener("click",function(){
         var inpString = inp.value;
-        console.log(inpString)
         out.innerHTML = "Output: " + Sluggin( inpString );
 
       });
@@ -85,28 +104,39 @@
   // LANGUAGES (STATIC) DEMOS
 
 	var EngText = "I used to have ugly text. Now I just have 1."
-	createDemoOutput("EN",EngText);
+	createDemoOutput("EN",EngText,".demos");
 	var SpaText = "Solía tener texto feo. Ahora sólo tengo 1."
-	createDemoOutput("ES",SpaText);
+	createDemoOutput("ES",SpaText,".demos");
 	var FreText = "J'ai l'habitude d'avoir un texte laid. Je dois maintenant juste 1."
-	createDemoOutput("FR",FreText);
+	createDemoOutput("FR",FreText,".demos");
 	var GerText = "Früher habe ich hässlich Text. Jetzt habe ich nur noch 1."
-	createDemoOutput("GR",GerText);
+	createDemoOutput("GR",GerText,".demos");
 
-	function createDemoOutput(lang,text){
+	function createDemoOutput(lang,text,className){
     var inputTitle = createElement("h2", "[class:f3]", "Input: [" + lang + "]");
-    document.querySelector(".demos").appendChild( inputTitle );
+    document.querySelector(className).appendChild( inputTitle );
 
     var title = createElement("p", "[class:f3]", text);
-    document.querySelector(".demos").appendChild( title );
+    document.querySelector(className).appendChild( title );
 
     var outputTitle = createElement("h2", "[class:f3]", "Output:");
-    document.querySelector(".demos").appendChild( outputTitle );
+    document.querySelector(className).appendChild( outputTitle );
 
     var slug = Sluggin( text ),
         output = createElement("pre", "[class:f3]", slug);
-    document.querySelector(".demos").appendChild( output );
+    document.querySelector(className).appendChild( output );
 	}
+
+  // ARRAY (STATIC) DEMO
+
+  var arrayDemo = [
+    "I used to have ugly text. Now I just have 1.",
+    "Solía tener texto feo. Ahora sólo tengo 1.",
+    "J'ai l'habitude d'avoir un texte laid. Je dois maintenant juste 1.",
+    "Früher habe ich hässlich Text. Jetzt habe ich nur noch 1."
+  ]
+  createDemoOutput("Array","['" + arrayDemo[0] + "','" + arrayDemo[1] + "','" + arrayDemo[2] + "','" + arrayDemo[3] + "']",".arraydemo");
+
 
   function createElement(name, val, result) {
     if (typeof name === "undefined") {
@@ -156,6 +186,25 @@
     }
     return ret;
   };
+
+  // TESTING VIA BROWSER'S CONSOLE
+  console.log("%c Sluggin.js \n Testing via browser's console ","background-color:#505074;color:white;");
+
+  // Test 1: output 1 string of text
+  console.info('Test 1: output 1 string of text:');
+  console.log( Sluggin("I used to have ugly text. Now I just have 1.") );
+
+  // Test 2: output an array of texts
+  console.info('Test 2: output an array of texts:');
+  console.log( Sluggin([
+    "I used to have ugly text. Now I just have 1.",
+    "Solía tener texto feo. Ahora sólo tengo 1.",
+    "J'ai l'habitude d'avoir un texte laid. Je dois maintenant juste 1.",
+    "Früher habe ich hässlich Text. Jetzt habe ich nur noch 1."
+  ]) );
+
+  // Test 3: if input is an object, returns empty
+  console.log( Sluggin( document.querySelector("#stringinput") ) );
 
 	</script>
 </body>
