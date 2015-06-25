@@ -1,6 +1,6 @@
 {
   "name": "sluggin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/juanbrujo/Sluggin.js",
   "authors": [
     "Jorge Epuñan <juanbrujo@gmail.com>"
@@ -11,7 +11,8 @@
     "javascript",
     "slug",
     "convert",
-    "string"
+    "string",
+    "url"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -23,6 +24,6 @@
     "grunt-contrib-watch": "^0.6.1"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "grunt testjs --verbose"
   }
 }

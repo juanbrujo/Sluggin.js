@@ -65,7 +65,7 @@ var Sluggin = (function Sluggin() {
     return sa ? s : s[0];
   }
   
-  function Sluggin( text ) {
+  function InitSluggin( text ) {
 
     var output;
 
@@ -92,7 +92,7 @@ var Sluggin = (function Sluggin() {
     
   }
 
-  return Sluggin;
+  return InitSluggin;
 
 })( this );
 
