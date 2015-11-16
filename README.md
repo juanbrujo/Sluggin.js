@@ -1,4 +1,4 @@
-#Sluggin.js
+# Sluggin.js
 
 ![Bower version](https://img.shields.io/bower/v/sluggin.svg)
 ![NPM version](https://badge.fury.io/js/sluggin.png)
@@ -6,7 +6,7 @@
 
 > Converts string/array into websafe-friendly-clean piece of text 
 
-###Install
+### Install
 
 ```
 $ npm install sluggin
@@ -16,7 +16,7 @@ $ npm install sluggin
 $ bower install sluggin
 ```
 
-###Use
+### Use
 
 **String:**
 ```
