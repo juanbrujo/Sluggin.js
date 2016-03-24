@@ -18,6 +18,10 @@ $ bower install sluggin
 
 ### Use
 
+**Require:**
+var Sluggin = require('Sluggin').Sluggin;
+
+
 **String:**
 ```
 Sluggin( "I used to have ugly text. Now I just have 1." );
