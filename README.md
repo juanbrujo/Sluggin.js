@@ -64,4 +64,4 @@ Sluggin( [
 
 - [SpeakingURL](https://github.com/pid/speakingurl)
 - [FriendURL](https://github.com/riverside/friendurl)
-- [HashTagChile Crew](http://hashtagchile.com/)
+- [DevsChile Crew](http://www.devschile.cl/)
