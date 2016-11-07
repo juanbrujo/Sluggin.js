@@ -6,6 +6,10 @@
 
 > Converts string/array into websafe-friendly-clean piece of text 
 
+### Languages supported
+
+latin languages, greek, turkish, cyrillic, czech, polish, latvian, currencies, macedonian, serbian, slovak, vietnamese, arabic and persian. 
+
 ### Install
 
 ```
