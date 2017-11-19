@@ -23,8 +23,9 @@ $ bower install sluggin
 
 ### Use
 
-**Require:**
+```
 var Sluggin = require('Sluggin').Sluggin;
+```
 
 
 **String:**
