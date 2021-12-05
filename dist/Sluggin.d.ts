@@ -1,1 +1,1 @@
-export declare function Sluggin(value: string): string;
+export declare function Sluggin(value: string[] | string): string[] | string;
