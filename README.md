@@ -24,7 +24,7 @@ $ bower install sluggin
 ### Use
 
 ```
-var Sluggin = require('Sluggin').Sluggin;
+const Sluggin = require('sluggin').Sluggin;
 ```
 
 
