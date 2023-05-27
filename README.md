@@ -1,9 +1,6 @@
 # Sluggin.js
 
-![Bower version](https://img.shields.io/bower/v/sluggin.svg)
 ![NPM version](https://badge.fury.io/js/sluggin.png)
-![CircleCI Build Status](https://circleci.com/gh/juanbrujo/Sluggin.js.png?style=shield&circle-token=:circle-token)
-![Lib size](https://badge-size.herokuapp.com/juanbrujo/Sluggin.js/master/dist/Sluggin.min.js)
 
 > Converts string/array into websafe-friendly-clean piece of text 
 
@@ -15,10 +12,6 @@ latin languages, greek, turkish, cyrillic, czech, polish, latvian, currencies, m
 
 ```
 $ npm install sluggin
-```
-
-```
-$ bower install sluggin
 ```
 
 ### Use
