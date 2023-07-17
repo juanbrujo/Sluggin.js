@@ -26,5 +26,13 @@
   },
   "scripts": {
     "test": "grunt testjs --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanbrujo/Sluggin.js.git"
+  },
+  "author": "Jorge Epuñan",
+  "bugs": {
+    "url": "https://github.com/juanbrujo/Sluggin.js/issues"
   }
 }
