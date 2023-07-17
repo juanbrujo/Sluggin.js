@@ -131,4 +131,3 @@ if ( typeof module !== "undefined" && module.exports ) {
     return Sluggin( text );
   });
 }
-

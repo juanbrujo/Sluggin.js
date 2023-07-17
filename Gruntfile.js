@@ -14,15 +14,6 @@ module.exports = function(grunt) {
 				" *  <%= pkg.licenses[0].copyright %>\n" +
 				" */\n"
 		},
-		// concat: {
-		// 	dist: {
-		// 		src: ["src/Sluggin.js"],
-		// 		dest: "dist/Sluggin.js"
-		// 	},
-		// 	options: {
-		// 		banner: "<%= meta.banner %>"
-		// 	}
-		// },
 		jshint: {
 			files: ["src/Sluggin.js"],
 			options: {
@@ -74,5 +65,4 @@ module.exports = function(grunt) {
 
 	grunt.registerTask("default", ["uglify"]);
 	grunt.registerTask("testjs", ["jshint"]);
-
 };

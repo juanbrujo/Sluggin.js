@@ -1,5 +1,5 @@
 /*
- *  Sluggin.js - v0.1.1
+ *  Sluggin.js - v0.4.1
  *  Converts string into websafe-friendly-clean piece of text
  *
  *  https://github.com/juanbrujo/Sluggin.js
