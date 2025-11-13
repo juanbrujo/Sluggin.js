@@ -17,15 +17,18 @@
   "types": "./dist/Sluggin.d.ts",
   "license": "MIT",
   "devDependencies": {
-    "grunt": "1.5.3",
-    "grunt-cli": "^1.3.2",
-    "grunt-contrib-concat": "^1.0.1",
+    "grunt": "1.6.1",
+    "grunt-cli": "^1.5.0",
+    "grunt-contrib-concat": "^2.1.0",
     "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-uglify": "^5.0.0",
     "grunt-contrib-watch": "^1.1.0"
   },
   "scripts": {
     "test": "grunt testjs --verbose"
+  },
+  "engines": {
+    "node": ">=24.11.1"
   },
   "repository": {
     "type": "git",
