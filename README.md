@@ -42,6 +42,35 @@ Sluggin( "Früher habe ich hässlich Text. Jetzt habe ich nur noch 1." );
 ➤ fruher-habe-ich-hasslich-text-jetzt-habe-ich-nur-noch-1
 ```
 
+### Testing
+
+This project uses Jest for unit testing. The test suite includes comprehensive coverage of:
+
+- Basic string slugification with various special characters
+- Array handling
+- Multilingual character support (Russian, Spanish, French, German, Greek, Turkish, Polish, Vietnamese, Arabic)
+- Currency symbols
+- Edge cases and error handling
+- Return type consistency
+- Output format validation
+
+**Run all Jest tests:**
+```
+npm test
+```
+
+**Run Jest with coverage report:**
+```
+npm test -- --coverage
+```
+
+**Run Grunt linting (JSHint):**
+```
+npm run test:grunt
+```
+
+Current test coverage: 89.36% statements, 87.8% lines, 83.33% functions, 57.69% branches
+
 **Array:**
 
 ```
